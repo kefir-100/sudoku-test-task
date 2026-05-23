@@ -1,0 +1,186 @@
+:root {
+  /* ----- Typography ----- */
+  --sudoku-font:
+    'Inter', system-ui, -apple-system, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
+
+  /* ----- Surfaces ----- */
+  --sudoku-bg-page: #f5f7fa;
+  --sudoku-bg-surface: #fff;
+  --sudoku-bg-surface-muted: #f8fafc;
+  --sudoku-bg-cell: #fff;
+  --sudoku-bg-cell-prefilled: #f1f5f9;
+
+  /* ----- Borders ----- */
+  --sudoku-border-subtle: #e2e8f0;
+  --sudoku-border-strong: #94a3b8;
+  --sudoku-border-outline: #cbd5e1;
+
+  /* ----- Text ----- */
+  --sudoku-text-primary: #0f172a;
+  --sudoku-text-secondary: #475569;
+  --sudoku-text-muted: #94a3b8;
+  --sudoku-text-inverted: #fff;
+
+  /* ----- Accent (indigo) ----- */
+  --sudoku-accent: #4f46e5;
+  --sudoku-accent-hover: #4338ca;
+  --sudoku-accent-active: #3730a3;
+  --sudoku-accent-soft: #eef2ff;
+  --sudoku-accent-tint: #e0e7ff;
+
+  /* ----- States ----- */
+  --sudoku-cell-bg-related: #eef2ff;
+  --sudoku-cell-bg-same-number: #c7d2fe;
+  --sudoku-cell-bg-focused: #4f46e5;
+  --sudoku-cell-bg-conflict: #fef2f2;
+  --sudoku-cell-bg-conflict-focus: #ffd1d1;
+  --sudoku-cell-text-conflict: #b91c1c;
+  --sudoku-cell-text-solver: #6366f1;
+
+  /* ----- Shape ----- */
+  --sudoku-radius-sm: 5px;
+  --sudoku-radius-md: 8px;
+  --sudoku-radius-lg: 12px;
+
+  /* ----- Elevation ----- */
+  --sudoku-shadow-card: 0 1px 2px rgb(15 23 42 / 4%), 0 4px 16px rgb(15 23 42 / 6%);
+  --sudoku-shadow-focus: 0 0 0 3px rgb(79 70 229 / 25%);
+
+  /* ----- Sudoku-specific tokens ----- */
+  --sudoku-board-bg: var(--sudoku-bg-page);
+  --sudoku-cell-bg: var(--sudoku-bg-cell);
+  --sudoku-cell-bg-prefilled: var(--sudoku-bg-cell-prefilled);
+  --sudoku-cell-border: var(--sudoku-border-subtle);
+  --sudoku-block-border: var(--sudoku-border-strong);
+  --sudoku-prefilled-color: var(--sudoku-text-primary);
+  --sudoku-user-color: var(--sudoku-accent);
+  --sudoku-solver-color: var(--sudoku-cell-text-solver);
+  --sudoku-conflict-color: var(--sudoku-cell-text-conflict);
+  --sudoku-related-bg: var(--sudoku-cell-bg-related);
+  --sudoku-same-bg: var(--sudoku-cell-bg-same-number);
+  --sudoku-focus-bg: var(--sudoku-cell-bg-focused);
+  --sudoku-conflict-bg: var(--sudoku-cell-bg-conflict);
+
+  /* ----- Material 21 token overrides ----- */
+
+  /* Typography — force every Material component onto Inter. */
+  --mat-sys-display-large-font: var(--sudoku-font);
+  --mat-sys-display-medium-font: var(--sudoku-font);
+  --mat-sys-display-small-font: var(--sudoku-font);
+  --mat-sys-headline-large-font: var(--sudoku-font);
+  --mat-sys-headline-medium-font: var(--sudoku-font);
+  --mat-sys-headline-small-font: var(--sudoku-font);
+  --mat-sys-title-large-font: var(--sudoku-font);
+  --mat-sys-title-medium-font: var(--sudoku-font);
+  --mat-sys-title-small-font: var(--sudoku-font);
+  --mat-sys-body-large-font: var(--sudoku-font);
+  --mat-sys-body-medium-font: var(--sudoku-font);
+  --mat-sys-body-small-font: var(--sudoku-font);
+  --mat-sys-label-large-font: var(--sudoku-font);
+  --mat-sys-label-medium-font: var(--sudoku-font);
+  --mat-sys-label-small-font: var(--sudoku-font);
+  --mat-sys-plain-family: var(--sudoku-font);
+  --mat-sys-brand-family: var(--sudoku-font);
+  --mat-app-font-family: var(--sudoku-font);
+  --mdc-typography-font-family: var(--sudoku-font);
+  --mat-button-filled-label-text-font: var(--sudoku-font);
+  --mat-button-outlined-label-text-font: var(--sudoku-font);
+  --mat-button-text-label-text-font: var(--sudoku-font);
+  --mat-button-protected-label-text-font: var(--sudoku-font);
+  --mat-snack-bar-supporting-text-font: var(--sudoku-font);
+  --mat-snack-bar-button-label-text-font: var(--sudoku-font);
+  --mdc-snackbar-supporting-text-font: var(--sudoku-font);
+  --mat-dialog-subhead-font: var(--sudoku-font);
+  --mat-dialog-supporting-text-font: var(--sudoku-font);
+  --mdc-dialog-subhead-font: var(--sudoku-font);
+  --mdc-dialog-supporting-text-font: var(--sudoku-font);
+  --mat-form-field-container-text-font: var(--sudoku-font);
+  --mat-form-field-subscript-text-font: var(--sudoku-font);
+  --mat-form-field-outlined-label-text-populated-size: 0.875rem;
+  --mat-select-trigger-text-font: var(--sudoku-font);
+  --mat-option-label-text-font: var(--sudoku-font);
+
+  /* Form field height */
+  --mat-form-field-container-height: 44px;
+  --mat-form-field-container-vertical-padding: 12px;
+  --mat-form-field-filled-with-label-container-padding-top: 18px;
+  --mat-form-field-filled-with-label-container-padding-bottom: 8px;
+
+  /* mat-flat-button (filled — primary CTA) — indigo accent */
+  --mat-button-filled-container-shape: var(--sudoku-radius-sm);
+  --mat-button-filled-container-color: var(--sudoku-accent);
+  --mat-button-filled-label-text-color: var(--sudoku-text-inverted);
+  --mat-button-filled-disabled-container-color: var(--sudoku-border-subtle);
+  --mat-button-filled-disabled-label-text-color: var(--sudoku-text-muted);
+  --mat-button-filled-state-layer-color: #fff;
+  --mat-button-filled-horizontal-padding: 16px;
+
+  /* mat-stroked-button (outlined — secondary action) */
+  --mat-button-outlined-container-shape: var(--sudoku-radius-sm);
+  --mat-button-outlined-label-text-color: var(--sudoku-text-primary);
+  --mat-button-outlined-outline-color: var(--sudoku-border-outline);
+  --mat-button-outlined-disabled-label-text-color: var(--sudoku-text-muted);
+  --mat-button-outlined-disabled-outline-color: var(--sudoku-border-subtle);
+  --mat-button-outlined-state-layer-color: var(--sudoku-accent);
+  --mat-button-outlined-horizontal-padding: 16px;
+
+  /* mat-button (text-only) */
+  --mat-button-text-container-shape: var(--sudoku-radius-sm);
+  --mat-button-text-label-text-color: var(--sudoku-accent);
+
+  /* mat-raised-button (protected) — same as filled */
+  --mat-button-protected-container-shape: var(--sudoku-radius-sm);
+  --mat-button-protected-container-color: var(--sudoku-accent);
+  --mat-button-protected-label-text-color: var(--sudoku-text-inverted);
+
+  /* mat-button hight (filled and outlined buttons) */
+  --mat-button-filled-container-height: var(--mat-form-field-container-height);
+  --mat-button-outlined-container-height: var(--mat-form-field-container-height);
+
+  /* Form field shape + color */
+  --mdc-outlined-text-field-container-shape: var(--sudoku-radius-sm);
+  --mdc-outlined-text-field-outline-color: var(--sudoku-border-outline);
+  --mdc-outlined-text-field-hover-outline-color: var(--sudoku-border-strong);
+  --mdc-outlined-text-field-focus-outline-color: var(--sudoku-accent);
+  --mdc-outlined-text-field-label-text-color: var(--sudoku-text-secondary);
+  --mdc-outlined-text-field-focus-label-text-color: var(--sudoku-accent);
+  --mdc-outlined-text-field-input-text-color: var(--sudoku-text-primary);
+
+  /* Select arrow + panel */
+  --mat-select-enabled-trigger-text-color: var(--sudoku-text-primary);
+  --mat-select-enabled-arrow-color: var(--sudoku-text-secondary);
+  --mat-select-focused-arrow-color: var(--sudoku-accent);
+  --mat-select-panel-background-color: var(--sudoku-bg-surface);
+
+  /* Snackbar + dialog */
+  --mdc-snackbar-container-shape: var(--sudoku-radius-md);
+  --mdc-snackbar-container-color: #1e293b;
+  --mdc-snackbar-supporting-text-color: var(--sudoku-text-inverted);
+  --mat-snack-bar-button-color: #a5b4fc;
+  --mdc-dialog-container-shape: var(--sudoku-radius-lg);
+  --mdc-dialog-container-color: var(--sudoku-bg-surface);
+  --mdc-dialog-subhead-color: var(--sudoku-text-primary);
+  --mdc-dialog-supporting-text-color: var(--sudoku-text-secondary);
+
+  /* mat-option (dropdown items) */
+  --mat-option-label-text-color: var(--sudoku-text-primary);
+  --mat-option-selected-state-label-text-color: var(--sudoku-accent);
+  --mat-option-focus-state-layer-color: var(--sudoku-accent-soft);
+  --mat-option-hover-state-layer-color: var(--sudoku-accent-soft);
+  --mat-option-selected-state-layer-color: var(--sudoku-accent-tint);
+}
+
+/* mat-stroked-button needs explicit bg — no container-color token */
+.mat-mdc-outlined-button:not(:disabled) {
+  background-color: var(--sudoku-bg-surface);
+}
+
+.mat-mdc-outlined-button:disabled {
+  background-color: var(--sudoku-bg-surface-muted);
+}
+
+/* Force the snackbar text + button to render in Inter even inside CDK overlay */
+.cdk-overlay-container,
+.cdk-overlay-container * {
+  font-family: var(--sudoku-font);
+}

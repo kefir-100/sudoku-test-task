@@ -1,0 +1,35 @@
+<menu class="game-controls">
+  <li>
+    <button
+      mat-flat-button
+      color="primary"
+      data-action="start"
+      [disabled]="isLoading()"
+      (click)="onStartClicked()"
+    >
+      {{ isGameInProgress() ? 'New Game' : 'Start Game' }}
+    </button>
+  </li>
+  @if (isGameInProgress()) {
+    <li>
+      <button
+        mat-stroked-button
+        data-action="validate"
+        [disabled]="!canValidate()"
+        (click)="validate.emit()"
+      >
+        Validate
+      </button>
+    </li>
+    <li>
+      <button
+        mat-stroked-button
+        data-action="solve"
+        [disabled]="!canSolve()"
+        (click)="solve.emit()"
+      >
+        Solve
+      </button>
+    </li>
+  }
+</menu>

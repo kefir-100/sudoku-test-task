@@ -1,0 +1,19 @@
+<section class="sudoku-board" role="grid" aria-label="Sudoku board">
+  @for (row of rows(); track $index) {
+    <div role="row" class="sudoku-board__row">
+      @for (cell of row; track cell.id) {
+        <app-sudoku-cell
+          [cell]="cell"
+          [isFocused]="focusedCellId() === cell.id"
+          [isRelatedHighlight]="relatedCellIds().has(cell.id)"
+          [isSameNumberHighlight]="sameNumberCellIds().has(cell.id)"
+          [isConflict]="conflictCellIds().has(cell.id)"
+          [isSolverFilled]="cell.isSolverFilled"
+          (digitEntered)="onDigit(cell.id, $event)"
+          (cellCleared)="onClear(cell.id)"
+          (focusRequested)="onFocus(cell.id)"
+        />
+      }
+    </div>
+  }
+</section>

@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  aspect-ratio: 1;
+  box-sizing: border-box;
+}
+
+.sudoku-cell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sudoku-bg-cell);
+  color: var(--sudoku-user-color);
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition:
+    background-color 0.12s ease,
+    color 0.12s ease;
+}
+
+.sudoku-cell--prefilled {
+  background-color: var(--sudoku-bg-cell-prefilled);
+  color: var(--sudoku-prefilled-color);
+  font-weight: 700;
+  cursor: default;
+}
+
+.sudoku-cell--related {
+  background-color: var(--sudoku-cell-bg-related);
+}
+
+.sudoku-cell--same-number {
+  background-color: var(--sudoku-cell-bg-same-number);
+  color: var(--sudoku-accent);
+}
+
+.sudoku-cell--focused {
+  background-color: var(--sudoku-cell-bg-focused);
+  color: var(--sudoku-text-inverted);
+}
+
+.sudoku-cell--conflict {
+  background-color: var(--sudoku-cell-bg-conflict);
+  color: var(--sudoku-cell-text-conflict);
+}
+
+.sudoku-cell--focused.sudoku-cell--conflict {
+  background-color: var(--sudoku-cell-bg-conflict-focus);
+}
+
+.sudoku-cell--solver-filled {
+  font-style: italic;
+  color: var(--sudoku-cell-text-solver);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sudoku-cell {
+    transition: none;
+  }
+}

@@ -1,0 +1,8 @@
+:host {
+  display: inline-block;
+  min-width: 12rem;
+}
+
+.difficulty-selector {
+  width: 100%;
+}

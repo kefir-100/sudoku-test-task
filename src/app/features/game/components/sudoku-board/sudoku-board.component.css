@@ -1,0 +1,52 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.sudoku-board {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  background-color: var(--sudoku-bg-surface);
+  border: 1px solid var(--sudoku-border-strong);
+  border-radius: var(--sudoku-radius-md);
+  overflow: hidden;
+  width: 100%;
+  max-width: min(90vmin, 42rem);
+  min-width: 284px;
+  margin: 0 auto;
+  container-type: inline-size;
+}
+
+.sudoku-board__row {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.sudoku-board__row app-sudoku-cell {
+  border-right: 1px solid var(--sudoku-border-subtle);
+  border-bottom: 1px solid var(--sudoku-border-subtle);
+  box-sizing: border-box;
+}
+
+.sudoku-board__row app-sudoku-cell:last-child {
+  border-right: none;
+}
+
+.sudoku-board__row:last-child app-sudoku-cell {
+  border-bottom: none;
+}
+
+.sudoku-board__row app-sudoku-cell:nth-child(3n):not(:last-child) {
+  border-right-color: var(--sudoku-border-strong);
+}
+
+.sudoku-board__row:nth-child(3n):not(:last-child) app-sudoku-cell {
+  border-bottom-color: var(--sudoku-border-strong);
+}
+
+@container (max-width: 360px) {
+  .sudoku-board {
+    width: 95vw;
+  }
+}

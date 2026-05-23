@@ -1,0 +1,78 @@
+<main class="game-page">
+  <header class="game-page__header">
+    <h1>Sudoku</h1>
+    <p class="game-page__hint">
+      Click a cell, then type
+      <kbd>1</kbd>
+      –
+      <kbd>9</kbd>
+      to enter a value.
+    </p>
+    <p class="game-page__hint">
+      Use
+      <span class="game-page__hint-keys">
+        <kbd>↑</kbd>
+        <kbd>↓</kbd>
+        <kbd>←</kbd>
+        <kbd>→</kbd>
+      </span>
+      to move between cells.
+    </p>
+  </header>
+
+  <div class="game-page__game">
+    <div class="game-page__board-area">
+      @if (gameService.board(); as board) {
+        <app-sudoku-board
+          [board]="board"
+          [focusedCellId]="gameService.focusedCellId()"
+          [relatedCellIds]="gameService.relatedCellIds()"
+          [sameNumberCellIds]="gameService.sameNumberCellIds()"
+          [conflictCellIds]="gameService.conflictCellIds()"
+          (digitEntered)="onDigitEntered($event)"
+          (cellCleared)="onCellCleared($event)"
+          (cellFocused)="onCellFocused($event)"
+        />
+      } @else {
+        <app-empty-state />
+      }
+
+      @if (gameService.status() === GameStatus.Loading) {
+        <app-loading-indicator class="game-page__overlay" label="Generating puzzle…" />
+      }
+
+      @if (gameService.status() === GameStatus.Error) {
+        <app-error-state
+          class="game-page__overlay game-page__overlay--error"
+          [message]="gameService.error()?.message ?? 'Unknown error'"
+          (retry)="onStartGame()"
+        />
+      }
+    </div>
+
+    <app-difficulty-selector
+      class="game-page__selector"
+      [disabled]="gameService.status() === GameStatus.Loading"
+      (difficultyChanged)="onDifficultyChanged($event)"
+    />
+
+    <app-game-controls
+      class="game-page__controls"
+      [isGameInProgress]="gameService.board() !== null"
+      [hasUserEntries]="gameService.hasUserEntries()"
+      [canValidate]="gameService.canValidate()"
+      [canSolve]="gameService.canSolve()"
+      [isLoading]="gameService.status() === GameStatus.Loading"
+      (startGame)="onStartGame()"
+      (validate)="onValidate()"
+      (solve)="onSolve()"
+    />
+
+    <app-numpad
+      class="game-page__numpad"
+      [disabled]="!gameService.isEditableCellFocused()"
+      (digitEntered)="onNumpadDigit($event)"
+      (cellCleared)="onNumpadClear()"
+    />
+  </div>
+</main>

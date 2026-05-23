@@ -1,0 +1,120 @@
+.game-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem 4rem;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.game-page__header {
+  text-align: center;
+}
+
+.game-page__header h1 {
+  margin: 0;
+  font-family: var(--sudoku-font);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--sudoku-text-primary);
+}
+
+.game-page__hint {
+  margin: 0.5rem auto 0;
+  max-width: 32rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--sudoku-text-secondary);
+}
+
+.game-page__hint-keys {
+  white-space: nowrap;
+}
+
+.game-page__hint kbd {
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 0.05rem 0.4rem;
+  font: inherit;
+  font-size: 0.85em;
+  line-height: 1.4;
+  text-align: center;
+  vertical-align: 0.05em;
+  color: var(--sudoku-text-primary);
+  background-color: var(--sudoku-bg-surface);
+  border: 1px solid var(--sudoku-border-outline);
+  border-bottom-width: 2px;
+  border-radius: var(--sudoku-radius-sm);
+  box-shadow: 0 1px 0 var(--sudoku-border-subtle);
+}
+
+.game-page__game {
+  display: grid;
+  width: 100%;
+  gap: 1.25rem;
+  justify-content: center;
+  justify-items: center;
+  grid-template:
+    'selector' auto
+    'controls' auto
+    'board' auto
+    'numpad' auto / minmax(20rem, 29rem);
+}
+
+.game-page__board-area {
+  grid-area: board;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.game-page__numpad {
+  grid-area: numpad;
+  width: 100%;
+}
+
+.game-page__selector {
+  grid-area: selector;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.game-page__controls {
+  grid-area: controls;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--sudoku-bg-surface);
+  border-radius: var(--sudoku-radius-lg);
+  box-shadow: var(--sudoku-shadow-card);
+}
+
+.game-page__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgb(255 255 255 / 70%);
+  backdrop-filter: blur(2px);
+  border-radius: var(--sudoku-radius-md);
+  z-index: 1;
+}
+
+.game-page__overlay--error {
+  z-index: 2;
+}
+
+@media (width >= 768px) {
+  .game-page__game {
+    grid-template:
+      'board selector' auto
+      'board controls' auto
+      'board numpad' 1fr / minmax(0, 40rem) minmax(14rem, 20rem);
+    align-items: start;
+    gap: 1rem 1.5rem;
+  }
+}

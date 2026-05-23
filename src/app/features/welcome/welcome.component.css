@@ -1,0 +1,35 @@
+.welcome {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.welcome__card {
+  max-width: 31rem;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 2.5rem 2rem;
+  background-color: var(--sudoku-bg-surface);
+  border-radius: var(--sudoku-radius-lg);
+  box-shadow: var(--sudoku-shadow-card);
+}
+
+.welcome__title {
+  font-family: var(--sudoku-font);
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--sudoku-text-primary);
+  margin: 0;
+}
+
+.welcome__subtitle {
+  margin: 0;
+  color: var(--sudoku-text-secondary);
+  font-size: 1rem;
+}

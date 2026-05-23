@@ -1,0 +1,19 @@
+<div
+  #focusableCell
+  role="gridcell"
+  class="sudoku-cell"
+  [class.sudoku-cell--prefilled]="cell().isPrefilled"
+  [class.sudoku-cell--focused]="isFocused()"
+  [class.sudoku-cell--related]="isRelatedHighlight()"
+  [class.sudoku-cell--same-number]="isSameNumberHighlight()"
+  [class.sudoku-cell--conflict]="isConflict()"
+  [class.sudoku-cell--solver-filled]="isSolverFilled()"
+  [attr.tabindex]="cell().isPrefilled ? -1 : 0"
+  [attr.aria-disabled]="cell().isPrefilled ? 'true' : null"
+  [attr.aria-invalid]="isConflict() ? 'true' : null"
+  [attr.aria-label]="'Cell row ' + (cell().row + 1) + ' column ' + (cell().column + 1)"
+  (keyup)="onKeyup($event)"
+  (focus)="onFocus()"
+>
+  {{ cell().userValue | coalesceEmpty }}
+</div>

@@ -1,0 +1,29 @@
+<div class="numpad" role="group" aria-label="Number pad">
+  @for (digit of digits; track digit) {
+    <button
+      mat-stroked-button
+      type="button"
+      class="numpad__btn"
+      data-action="digit"
+      [attr.data-digit]="digit"
+      [disabled]="disabled()"
+      [attr.aria-label]="'Enter digit ' + digit"
+      (mousedown)="onMouseDown($event)"
+      (click)="onDigit(digit)"
+    >
+      {{ digit }}
+    </button>
+  }
+  <button
+    mat-stroked-button
+    type="button"
+    class="numpad__btn numpad__btn--clear"
+    data-action="clear"
+    [disabled]="disabled()"
+    aria-label="Clear cell"
+    (mousedown)="onMouseDown($event)"
+    (click)="onClear()"
+  >
+    Clear
+  </button>
+</div>

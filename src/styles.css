@@ -1,0 +1,24 @@
+@import './styles/_layers.css';
+@import 'tailwindcss/preflight.css' layer(tailwind-base);
+@import 'tailwindcss/utilities.css' layer(tailwind-utilities);
+@import '@angular/material/prebuilt-themes/azure-blue.css' layer(mat-components);
+@import './styles/_theme.css';
+
+@layer app {
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    font-family: var(--sudoku-font);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-width: 320px;
+    background-color: var(--sudoku-bg-page);
+    color: var(--sudoku-text-primary);
+  }
+}
